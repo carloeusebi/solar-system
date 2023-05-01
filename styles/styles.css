@@ -6,16 +6,17 @@
 
 html{
     /* 1rem = 1au */
-    font-size: 100px;
+    font-size: 80px;
 }
 
 .solar-system{
     width: 100vw;
-    height: 40rem;
-    background: radial-gradient(#101010, black);
+    height: 100vh;
+    background: radial-gradient(#222, black);
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-y: scroll;
 }
 
 .sun{
@@ -30,7 +31,7 @@ html{
     transform: translate(50%, 50%);
 }
 
-.sun *{
+.sun > *{
     width: 2px;
     height: 2px;
     border-radius: 50%;
@@ -38,6 +39,16 @@ html{
     border-width: 1px 1px 0 0;
     border-style: solid;
     border-color: white transparent transparent transparent;
+}
+
+.planet{
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    position: absolute;
+    left: 85.15%;
+    top: 14.35%;
+    background-color: white;
 }
 
 .mercury{
@@ -88,47 +99,41 @@ html{
     animation: orbit 600s linear infinite;
 }
 
-.sun *::before{
-    content: "";
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    position: absolute;
-    left: 85%;
-    top: 14%;
-}
-
-.mercury::before{
+.mercury .planet{
     background-color: #1a1a1a;
 }
 
-.venus::before{
+.venus .planet{
     background-color: #e6e6e6;
 }
 
-.earth::before{
-    background-color: aqua;
+.earth .planet{
+    background-color: aqua;    
 }
-
-.mars::before{
+.mars .planet{
     background-color: #993d00;
 }
 
-.jupiter::before{
+.jupiter .planet{
+    width: 10px;
+    height: 10px;
     background-color: #b07f35;
 }
 
-.saturn::before{
+.saturn .planet{
+    width: 8px;
+    height: 8px;
     background-color: #b08f36;
 }
 
-.uranus::before{
+.uranus .planet{
     background-color: #5580aa;
 }
 
-.neptune::before{
+.neptune .planet{
     background-color: #366896;
 }
+
 
 @keyframes orbit {
     to {
