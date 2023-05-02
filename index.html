@@ -7,8 +7,47 @@
     <title>Solar system</title>
     <link rel="icon" href="img/solar-system.png" type="img/png">
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' integrity='sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==' crossorigin='anonymous'>
+    <link href="https://fonts.googleapis.com/css?family=VT323:regular" rel="stylesheet">
 </head>
 <body>
+
+    <header>
+        <div class="left">
+            <div class="elapsed-time flex">
+                <div class="text">Elapsed time: 0 days</div>
+                <!-- <div class="bar"></div> -->
+            </div>
+            <div class="scale flex">
+                <div class="text">Zoom: 1AU = 80px</div>
+                <div class="bar">
+                    <div class="marker"></div>
+                </div>
+            </div>
+            <div class="speed flex">
+                <div class="text">Speed: 1sec = 10 Earth days</div>
+                <div class="bar">
+                    <div class="marker"></div>
+                </div>
+            </div>
+            <div class="restart">
+                <span>Restart Simulation</span>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="options">
+                <label for="planet-names"><input id="planet-names" type="checkbox"> Planet names</label>
+                <label for="planet-names"><input id="planet-names" type="checkbox"> Planet names</label>
+                <label for="planet-names"><input id="planet-names" type="checkbox"> Planet names</label>
+                <label for="planet-names"><input id="planet-names" type="checkbox"> Planet names</label>
+                <label for="planet-names"><input id="planet-names" type="checkbox"> Planet names</label>
+            </div>
+        </div>
+
+    </header>
+
+
     <div class="solar-system">
         <div class="sun">
             <div class="mercury">
@@ -28,7 +67,9 @@
                 
             </div>
             <div class="saturn">
-                <div class="planet"></div>
+                <div class="planet">
+                    <div class="rings"></div>
+                </div>
             </div>
             
             <div class="uranus">
