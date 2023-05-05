@@ -13,71 +13,92 @@
 <body>
 
     <header>
-        <div class="left">
-            <div class="elapsed-time flex">
-                <div class="text">Elapsed time: 0 days</div>
-                <!-- <div class="bar"></div> -->
+        <div class="container flex justify-space-between">
+            
+            <div class="left">
+                <div class="elapsed-time flex justify-space-between">
+                    <div class="text">Elapsed time: 0 days</div>
+                </div>
+                <div class="scale flex justify-space-between">
+                    <div class="text">Zoom: 1AU = 80px</div>
+                    <div class="bar">
+                        <div class="marker"></div>
+                    </div>
+                </div>
+                <div class="speed flex justify-space-between">
+                    <div class="text">Speed: 1sec = 10 Earth days</div>
+                    <div class="bar">
+                        <div class="marker"></div>
+                    </div>
+                </div>
+                <button id="restart-button">Restart Simulation</button>
             </div>
-            <div class="scale flex">
-                <div class="text">Zoom: 1AU = 80px</div>
-                <div class="bar">
-                    <div class="marker"></div>
+            
+            <div class="right">
+                <div class="options">
+                    <label for="planet-names"><input id="planet-names" value="planet-names" type="checkbox"> Show planet names</label>
+                    <label for="orbits"><input id="orbits" value="orbits" type="checkbox"> Show orbits</label>
+                    <label for="background"><input id="background" value="background" type="checkbox"> Background</label>
+                    <label for="planet-names"><input id="planet-names" value="planet-names" type="checkbox"> tbc</label>
+                    <label for="planet-names"><input id="planet-names" value="planet-names" type="checkbox"> tbc</label>
                 </div>
             </div>
-            <div class="speed flex">
-                <div class="text">Speed: 1sec = 10 Earth days</div>
-                <div class="bar">
-                    <div class="marker"></div>
-                </div>
-            </div>
-            <div class="restart">
-                <span>Restart Simulation</span>
-            </div>
-        </div>
 
-        <div class="right">
-            <div class="options">
-                <label for="planet-names"><input id="planet-names" type="checkbox"> Planet names</label>
-                <label for="planet-names"><input id="planet-names" type="checkbox"> Planet names</label>
-                <label for="planet-names"><input id="planet-names" type="checkbox"> Planet names</label>
-                <label for="planet-names"><input id="planet-names" type="checkbox"> Planet names</label>
-                <label for="planet-names"><input id="planet-names" type="checkbox"> Planet names</label>
-            </div>
+
+        </div>
+        <div class="arrow">
+            <i class="fa-solid fa-caret-up"></i>
+            <i class="fa-solid fa-caret-down"></i>
         </div>
 
     </header>
-
-
+    
+    
     <div class="solar-system">
         <div class="sun">
             <div class="mercury">
-                <div class="planet"></div>
+                <div class="planet">
+                    <div class="planet-name">Mercury</div>
+                </div>
             </div>
             <div class="venus">
-                <div class="planet"></div>
+                <div class="planet">
+                    <div class="planet-name">Venus</div>
+                </div>
             </div>
             <div class="earth">
-                <div class="planet"></div>
+                <div class="planet">
+                    <div class="planet-name">Earth</div>
+                </div>
             </div>
             <div class="mars">
-                <div class="planet"></div>
+                <div class="planet">
+                    <div class="planet-name">Mars</div>
+                </div>
             </div>
             <div class="jupiter">
-                <div class="planet"></div>
+                <div class="planet">
+                    <div class="planet-name">Jupiter</div>
+                </div>
                 
             </div>
             <div class="saturn">
                 <div class="planet">
+                    <div class="planet-name">Saturn</div>
                     <div class="rings"></div>
                 </div>
             </div>
             
             <div class="uranus">
-                <div class="planet"></div>
+                <div class="planet">
+                    <div class="planet-name">Uranus</div>
+                </div>
                 
             </div>
             <div class="neptune">
-                <div class="planet"></div>
+                <div class="planet">
+                    <div class="planet-name">Neptune</div>
+                </div>
 
             </div>
         </div>

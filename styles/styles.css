@@ -6,38 +6,49 @@
 
 html{
     /* 1rem = 1au */
-    font-size: 50px;
+    font-size: 80px;
 }
 
 body{
     font-family: 'VT323', monospace;
     overflow: hidden;
+    user-select: none;
 }
 
 /* utilities */
 .flex{
     display: flex;
     align-items: center;
+}
+
+.flex.justify-space-between{
     justify-content: space-between;
 }
 
-/* HEADER */
+.container{
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+/* ! HEADER */
 header{
-    background-color: rgba(0,0,0, .4);
+    background-color: rgba(0,0,0, .3);
+    border-bottom: 1px solid #333;
     position: fixed;
-    top: 0;
+    height: 120px;
+    /* top: -115px; */
+    top: 0px;
     left: 0;
     right: 0;
     z-index: 1;
     color: white;
-    font-size: 20px;
-    padding: 30px;
-    display: flex;
-    justify-content: space-between;
+    font-size: 18px;
+    padding: 10px;
 }
 
 header .left{
     width: 30%;
+    text-align: center;
 }
 
 .bar{    
@@ -59,20 +70,20 @@ header .left{
     cursor: pointer;
 }
 
-.restart{
-    text-align: center;
+#restart-button{
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    display: inline-block;
+    width: 50%;
     margin-top: 20px;
-    
-}
-
-.restart span{
     background-color: white;
     color: black;
     padding: 5px 8px;
-    cursor: pointer;
+    cursor: pointer;  
+    border: none;  
 }
 
-.restart span:active{
+.restart:active{
     position: relative;
     top: 2px;
 }
@@ -87,11 +98,67 @@ header .right .options {
     flex-direction: column;
 }
 
+header label{
+    display: flex;
+    align-items: center;
+}
+
 header .input{
     color: black;
 }
 
-/* SOLAR SYSTEM */
+header .arrow{
+    width: 70px;
+    border-top: 20px solid white;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    color: black;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    cursor: pointer;
+    transform: translate(-50%, 50%);
+}
+
+header .arrow .fa-caret-up,
+header .arrow .fa-caret-down{
+    position: absolute;
+    bottom: 9px;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    font-size: 25px;
+}
+
+header .arrow .fa-caret-down{
+    display: none;
+}
+
+header .arrow .fa-caret-up{
+    display: block;
+}
+
+
+input[type="checkbox"]{
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border: 1px solid white;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked{
+    background-color: white;
+    /* font: var(--fa-font-solid);
+    content: "\f00c";
+    color: white; */
+}
+
+
+/* ! SOLAR SYSTEM */
 
 .solar-system{
     width: 100%;
@@ -135,73 +202,99 @@ header .input{
     background-color: white;
 }
 
+.planet-name{
+    font-size: 20px;
+    position: absolute;
+}
+
+
+/* # MERCURY */
 .mercury{
     width: .39rem;
     height: .39rem;
     animation: orbit .88s linear infinite;
 }
 
+.mercury .planet{
+    background-color: #1a1a1a;
+}
+
+.mercury .planet-name{
+    animation: planet-name .88s linear infinite;
+    color: #1a1a1a;
+}
+
+/* # VENUS */
 .venus{
     width: .72rem;
     height: .72rem;
     animation: orbit 2.25s linear infinite;
 }
 
+.venus .planet{
+    background-color: #e6e6e6;
+}
+
+.venus .planet-name{
+    animation: planet-name 2.25s linear   infinite ;
+    color: #e6e6e6;
+}
+
+/* # EARTH */
 .earth{
     width: 1rem;
     height: 1rem;
     animation: orbit 3.65s linear infinite;
 }
 
+.earth .planet{
+    background-color: aqua;    
+}
+
+.earth .planet-name{
+    animation: planet-name 3.65s linear infinite;
+    color: aqua;        
+}   
+
+/* # MARS */
 .mars{
     width: 1.52rem;
     height: 1.52rem;
     animation: orbit 6.87s linear infinite;
 }
 
+.mars .planet{
+    background-color: #993d00;
+}
+
+.mars .planet-name{
+    color: #993d00;
+    animation: planet-name 6.87s linear infinite;
+}   
+
+/* # JUPITER */
 .jupiter{
     width: 5.20rem;
     height: 5.20rem;
     animation: orbit 43.3s linear infinite;
 }
 
-.saturn{
-    width: 9.55rem;
-    height: 9.55rem;
-    animation: orbit 100.76s linear infinite;
-}
-
-.uranus{
-    width: 19.22rem;
-    height: 19.22rem;
-    animation: orbit 300s linear infinite;
-}
-
-.neptune{
-    width: 30.06rem;
-    height: 30.06rem;
-    animation: orbit 600s linear infinite;
-}
-
-.mercury .planet{
-    background-color: #1a1a1a;
-}
-
-.venus .planet{
-    background-color: #e6e6e6;
-}
-
-.earth .planet{
-    background-color: aqua;    
-}
-.mars .planet{
-    background-color: #993d00;
-}
-
 .jupiter .planet{
     width: 10px;
     height: 10px;
     background-color: #b07f35;
+}
+
+.jupiter .planet-name{
+    animation: planet-name 43.3s linear infinite;
+    color: #b07f35;
+}   
+
+/* # SATURN */
+.saturn{
+    width: 9.55rem;
+    height: 9.55rem;
+    animation: orbit 100.76s linear infinite;
 }
 
 .saturn .planet{
@@ -222,17 +315,65 @@ header .input{
     transform: translate(-50%, -50%);
 }
 
+.saturn .planet-name{
+    animation: planet-name 100.76s linear infinite;
+    color: #b08f36;
+}   
+
+/* # URANUS */
+.uranus{
+    width: 19.22rem;
+    height: 19.22rem;
+    animation: orbit 300s linear infinite;
+}
+
+.uranus .planet-name{
+    animation: planet-name 300s linear infinite;
+    color: #5580aa;
+} 
+
 .uranus .planet{
     background-color: #5580aa;
 }
+
+/* # NEPTUNE */
+.neptune{
+    width: 30.06rem;
+    height: 30.06rem;
+    animation: orbit 600s linear infinite;
+}
+
+.neptune .planet-name{
+    animation: planet-name 600s linear infinite;
+    color: #366896;
+}   
 
 .neptune .planet{
     background-color: #366896;
 }
 
+/* ! ANIMATIONS */
 
 @keyframes orbit {
     to {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes planet-name {
+    to{
+        rotate: -360deg;
+    }
+}
+
+@keyframes hide-header {
+    to{
+        top: -118px;
+    }
+}
+
+@keyframes show-header {
+    to{
+        top: 0;
     }
 }
