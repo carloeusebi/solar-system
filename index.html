@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Carlo Eusebi">
     <title>Solar system</title>
     <link rel="icon" href="img/solar-system.png" type="img/png">
     <link rel="stylesheet" href="styles/styles.css">
@@ -12,96 +13,117 @@
 </head>
 <body>
 
+
+    <!-- ! HEADER -->
     <header>
         <div class="container flex justify-space-between">
             
             <div class="left">
-                <div class="elapsed-time flex justify-space-between">
-                    <div class="text">Elapsed time: 0 days</div>
+
+                <div class="elapsed-time">
+                    <div id="days">Time elapsed: 0 days</div>
                 </div>
-                <div class="scale flex justify-space-between">
-                    <div class="text">Zoom: 1AU = 80px</div>
-                    <div class="bar">
-                        <div class="marker"></div>
-                    </div>
+
+                <div class="slider">
+                    <label id="zoom-label" for="zoom-slider">Zoom: 1au = &ThinSpace;<span id="zoom-value">80px</span>
+                        <input id="zoom-slider" type="range" min="10" max="160" step="10" value="80">
+                    </label>
                 </div>
-                <div class="speed flex justify-space-between">
-                    <div class="text">Speed: 1sec = 10 Earth days</div>
-                    <div class="bar">
-                        <div class="marker"></div>
-                    </div>
+                
+                <div class="slider">
+                    <label id="speed-label" for="speed-slider">Speed: 1sec = &ThinSpace;<span id="speed-value">100 Earth days</span>
+                        <input id="speed-slider" type="range" min="10" max="500" step="10" value="100">
+                    </label> 
                 </div>
-                <button id="restart-button">Restart Simulation</button>
+
+                <input id="restart-button" type="button" onClick="window.location.reload()" value="Restart Simulation">
             </div>
             
             <div class="right">
                 <div class="options">
-                    <label for="planet-names"><input id="planet-names" value="planet-names" type="checkbox"> Show planet names</label>
-                    <label for="orbits"><input id="orbits" value="orbits" type="checkbox"> Show orbits</label>
+                    <label for="planet-names"><input id="planet-names" value="planet-names" type="checkbox" checked> Show planet names</label>
+                    <label for="orbits"><input id="orbits" value="orbits" type="checkbox" checked> Show orbits</label>
                     <label for="background"><input id="background" value="background" type="checkbox"> Background</label>
-                    <label for="planet-names"><input id="planet-names" value="planet-names" type="checkbox"> tbc</label>
-                    <label for="planet-names"><input id="planet-names" value="planet-names" type="checkbox"> tbc</label>
                 </div>
             </div>
 
 
-        </div>
-        <div class="arrow">
-            <i class="fa-solid fa-caret-up"></i>
-            <i class="fa-solid fa-caret-down"></i>
         </div>
 
     </header>
     
     
-    <div class="solar-system">
+
+    <!-- ! SOLAR SYSTEM -->
+    <div id="solar-system" class="no-background">
+
+        <!-- sun -->
         <div class="sun">
-            <div class="mercury">
+
+            <!-- mercury -->
+            <div id="mercury" class="orbit mercury visible">
                 <div class="planet">
-                    <div class="planet-name">Mercury</div>
+                    <div id="mercury-name" class="planet-name visible">Mercury</div>
                 </div>
             </div>
-            <div class="venus">
+
+            <!-- venus -->
+            <div id="venus" class="orbit venus visible">
                 <div class="planet">
-                    <div class="planet-name">Venus</div>
+                    <div id="venus-name" class="planet-name visible">Venus</div>
                 </div>
             </div>
-            <div class="earth">
+
+            <!-- earth -->
+            <div id="earth" class="orbit visible">
                 <div class="planet">
-                    <div class="planet-name">Earth</div>
+                    <div id="earth-name" class="planet-name visible">Earth</div>
                 </div>
             </div>
-            <div class="mars">
+
+            <!-- mars -->
+            <div id="mars" class="orbit mars visible">
                 <div class="planet">
-                    <div class="planet-name">Mars</div>
+                    <div id="mars-name" class="planet-name visible">Mars</div>
                 </div>
             </div>
-            <div class="jupiter">
+
+            <!-- jupiter -->
+            <div id="jupiter" class="orbit jupiter visible">
                 <div class="planet">
-                    <div class="planet-name">Jupiter</div>
-                </div>
-                
+                    <div id="jupiter-name" class="planet-name visible">Jupiter</div>
+                </div>                
             </div>
-            <div class="saturn">
+
+            <!-- saturn -->
+            <div id="saturn" class="orbit saturn visible">
                 <div class="planet">
-                    <div class="planet-name">Saturn</div>
+                    <div id="saturn-name" class="planet-name visible">Saturn</div>
                     <div class="rings"></div>
                 </div>
             </div>
-            
-            <div class="uranus">
+
+            <!-- uranus -->
+            <div id="uranus" class="orbit uranus visible">
                 <div class="planet">
-                    <div class="planet-name">Uranus</div>
-                </div>
-                
+                    <div id="uranus-name" class="planet-name visible">Uranus</div>
+                </div>                
             </div>
-            <div class="neptune">
+
+            <!-- neptune -->
+            <div id="neptune" class="orbit neptune visible">
                 <div class="planet">
-                    <div class="planet-name">Neptune</div>
+                    <div id="neptune-name" class="planet-name visible">Neptune</div>
                 </div>
 
             </div>
         </div>
     </div>
+
+
+    <!-- ! Sripts -->
+    <script src="scripts/scripts.js"></script>
+
+
 </body>
 </html>
