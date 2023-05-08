@@ -7,6 +7,10 @@ const backgroundCheckbox = document.getElementById("background")
 const zoomSlider = document.getElementById("zoom-slider");
 const speedSlider = document.getElementById("speed-slider");
 
+//restart button
+const restartButton = document.getElementById('restart-button')
+
+
 //arrays
 const planetName = document.querySelectorAll(".planet-name");
 const orbits = document.querySelectorAll(".orbit");
@@ -16,14 +20,18 @@ const solarSystem = document.getElementById('solar-system')
 let zoomValue = zoomSlider.value;        
 document.getElementById('zoom-value').innerText = zoomValue + "px";                        
 
+// ! Restart function
+restartButton.addEventListener('click', function(){
+    daysPassed = 0;
+    startPlanetsRotation();
+})
 
 // ! zoom function
 zoomSlider.onchange = function() {
     let zoomValue = zoomSlider.value;
-    document.getElementById('zoom-value').innerText = zoomValue + "px";    
-    const html = document.querySelector("html");
+    document.getElementById('zoom-value').innerText = zoomValue + "px";
     let zoomPixels = zoomValue + "px";
-    html.style.fontSize = zoomPixels;                    
+    document.querySelector("html").style.fontSize = zoomPixels;                    
 }
 
 
@@ -77,7 +85,7 @@ function startPlanetsRotation(){
 
 //this function starts timer
 function startInterval(){
-    intervalId = setInterval(incrementSeconds, 10);
+    setInterval(incrementSeconds, 10);
 }
 
 startInterval();
@@ -173,6 +181,8 @@ addEventListener("change", (event) => {
 
 })
 
+
+// ! scroll functions
 var event = new Event('change');
 
 window.addEventListener('wheel', function(e) {

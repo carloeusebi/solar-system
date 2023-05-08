@@ -8,8 +8,14 @@
     <title>Solar system</title>
     <link rel="icon" href="img/solar-system.png" type="img/png">
     <link rel="stylesheet" href="styles/styles.css">
+
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' integrity='sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==' crossorigin='anonymous'>
+
     <link href="https://fonts.googleapis.com/css?family=VT323:regular" rel="stylesheet">
+
+     <!-- ! Sripts -->
+    <script defer src="scripts/app.js"></script>
+
 </head>
 <body>
 
@@ -18,27 +24,33 @@
     <header>
         <div class="container flex justify-space-between">
             
+            <!-- # left side -->
             <div class="left">
 
+                <!-- elapsed time -->
                 <div class="elapsed-time">
                     <div id="days">Time elapsed: 0 days</div>
                 </div>
 
+                <!-- zoom slider -->
                 <div class="slider">
                     <label id="zoom-label" for="zoom-slider">Zoom: 1au = &ThinSpace;<span id="zoom-value">80px</span>
                         <input id="zoom-slider" type="range" min="10" max="160" step="10" value="80">
                     </label>
                 </div>
                 
+                <!-- speed slider -->
                 <div class="slider">
                     <label id="speed-label" for="speed-slider">Speed: 1sec = &ThinSpace;<span id="speed-value">100 Earth days</span>
                         <input id="speed-slider" type="range" min="10" max="500" step="10" value="100">
                     </label> 
                 </div>
 
-                <input id="restart-button" type="button" onClick="window.location.reload()" value="Restart Simulation">
+                <!-- restart button -->
+                <input id="restart-button" type="button" value="Restart Simulation">
             </div>
             
+            <!-- # right side -->
             <div class="right">
                 <div class="options">
                     <label for="planet-names"><input id="planet-names" value="planet-names" type="checkbox" checked> Show planet names</label>
@@ -119,11 +131,5 @@
             </div>
         </div>
     </div>
-
-
-    <!-- ! Sripts -->
-    <script src="scripts/scripts.js"></script>
-
-
 </body>
 </html>
