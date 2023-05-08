@@ -7,13 +7,15 @@ const backgroundCheckbox = document.getElementById("background")
 const zoomSlider = document.getElementById("zoom-slider");
 const speedSlider = document.getElementById("speed-slider");
 
-//restart button
+//buttons
 const restartButton = document.getElementById('restart-button')
+const centerButton = document.getElementById('center-button')
 
 
 //arrays
 const planetName = document.querySelectorAll(".planet-name");
 const orbits = document.querySelectorAll(".orbit");
+const cards = document.querySelectorAll(".card"); 
 
 const solarSystem = document.getElementById('solar-system')
 
@@ -24,6 +26,12 @@ document.getElementById('zoom-value').innerText = zoomValue + "px";
 restartButton.addEventListener('click', function(){
     daysPassed = 0;
     startPlanetsRotation();
+})
+
+// ! Center function
+centerButton.addEventListener('click', function(){
+    solarSystem.style.left = "50%";
+    solarSystem.style.top = "50%";
 })
 
 // ! zoom function
@@ -42,6 +50,8 @@ document.getElementById('speed-value').innerText = speedValue + " Earth days"
 
 const orbitalPeriodsArray = [ 88, 225, 365, 687, 4333, 10759, 30687, 60190];
 
+
+// ! rotation
 // gets planets position everytime speed is changed; without it planets would reset position everytime speed is update
 function getCurrentRotation(element){
 
@@ -84,11 +94,7 @@ function startPlanetsRotation(){
 }
 
 //this function starts timer
-function startInterval(){
-    setInterval(incrementSeconds, 10);
-}
-
-startInterval();
+setInterval(incrementSeconds, 10);
 startPlanetsRotation();
 
 //this functions update orbits speed, it also set planets position to where they were when speed was changed
@@ -191,7 +197,6 @@ window.addEventListener('wheel', function(e) {
     }else{
         zoomSlider.stepDown();
     }
-    e.preventDefault();
     e.stopPropagation();
     
     zoomSlider.dispatchEvent(event);
@@ -208,3 +213,48 @@ speedSlider.addEventListener("wheel", function(e){
     
     speedSlider.dispatchEvent(event);
 })
+
+
+// ! Drag function
+var isDown = false;
+var offset = [0,0];
+var mousePosition;
+
+document.body.appendChild(solarSystem);
+
+solarSystem.addEventListener('mousedown', function(e) {
+    isDown = true;
+    offset = [
+        solarSystem.offsetLeft - e.clientX,
+        solarSystem.offsetTop - e.clientY
+    ];
+    
+}, true)
+
+document.addEventListener('mouseup', function(){
+    isDown = false;
+}, true);
+
+document.addEventListener('mousemove', function(event){
+    event.preventDefault();
+    if (isDown){
+        mousePosition = {
+            x : event.clientX,
+            y : event.clientY
+        };
+        solarSystem.style.left = (mousePosition.x + offset[0]) + 'px';
+        solarSystem.style.top = (mousePosition.y + offset[1]) + 'px';
+    }
+}, true);
+
+// ! card funtion
+
+for (let i = 0; i < orbits.length; i++){
+    orbits[i].addEventListener('click', function(){
+        console.log(cards[i]);
+        for (var j = 0; j < cards.length; j++){
+            cards[j].classList.replace('visible', 'hidden');
+        }
+        cards[i].classList.replace('hidden', 'visible');
+    });
+}

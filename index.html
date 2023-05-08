@@ -47,7 +47,9 @@
                 </div>
 
                 <!-- restart button -->
-                <input id="restart-button" type="button" value="Restart Simulation">
+                <input class="button" id="restart-button" type="button" value="Restart Simulation">
+                <input class="button" id="center-button" type="button" value="Center">
+
             </div>
             
             <!-- # right side -->
@@ -65,71 +67,83 @@
     </header>
     
     
+    <main> 
 
-    <!-- ! SOLAR SYSTEM -->
-    <div id="solar-system" class="no-background">
-
-        <!-- sun -->
-        <div class="sun">
-
-            <!-- mercury -->
-            <div id="mercury" class="orbit mercury visible">
-                <div class="planet">
-                    <div id="mercury-name" class="planet-name visible">Mercury</div>
+        <!-- ! SOLAR SYSTEM -->
+        <div id="solar-system" class="no-background">
+            
+            <!-- sun -->
+            <div class="sun">
+                
+                <!-- mercury -->
+                <div id="mercury" class="orbit mercury visible">
+                    <div class="planet">
+                        <div id="mercury-name" class="planet-name visible">Mercury</div>
+                    </div>
                 </div>
-            </div>
-
-            <!-- venus -->
-            <div id="venus" class="orbit venus visible">
-                <div class="planet">
-                    <div id="venus-name" class="planet-name visible">Venus</div>
+                
+                <!-- venus -->
+                <div id="venus" class="orbit venus visible">
+                    <div class="planet">
+                        <div id="venus-name" class="planet-name visible">Venus</div>
+                    </div>
                 </div>
-            </div>
-
-            <!-- earth -->
-            <div id="earth" class="orbit visible">
-                <div class="planet">
-                    <div id="earth-name" class="planet-name visible">Earth</div>
+                
+                <!-- earth -->
+                <div id="earth" class="orbit visible">
+                    <div class="planet">
+                        <div id="earth-name" class="planet-name visible">Earth</div>
+                    </div>
                 </div>
-            </div>
-
-            <!-- mars -->
-            <div id="mars" class="orbit mars visible">
-                <div class="planet">
-                    <div id="mars-name" class="planet-name visible">Mars</div>
+                
+                <!-- mars -->
+                <div id="mars" class="orbit mars visible">
+                    <div class="planet">
+                        <div id="mars-name" class="planet-name visible">Mars</div>
+                    </div>
                 </div>
-            </div>
-
-            <!-- jupiter -->
-            <div id="jupiter" class="orbit jupiter visible">
-                <div class="planet">
-                    <div id="jupiter-name" class="planet-name visible">Jupiter</div>
-                </div>                
-            </div>
-
-            <!-- saturn -->
-            <div id="saturn" class="orbit saturn visible">
-                <div class="planet">
-                    <div id="saturn-name" class="planet-name visible">Saturn</div>
-                    <div class="rings"></div>
-                </div>
-            </div>
-
-            <!-- uranus -->
-            <div id="uranus" class="orbit uranus visible">
-                <div class="planet">
-                    <div id="uranus-name" class="planet-name visible">Uranus</div>
-                </div>                
-            </div>
-
-            <!-- neptune -->
-            <div id="neptune" class="orbit neptune visible">
-                <div class="planet">
-                    <div id="neptune-name" class="planet-name visible">Neptune</div>
+                
+                <!-- jupiter -->
+                <div id="jupiter" class="orbit jupiter visible">
+                    <div class="planet">
+                        <div id="jupiter-name" class="planet-name visible">Jupiter</div>
+                    </div>                
                 </div>
 
+                <!-- saturn -->
+                <div id="saturn" class="orbit saturn visible">
+                    <div class="planet">
+                        <div id="saturn-name" class="planet-name visible">Saturn</div>
+                        <div class="rings"></div>
+                    </div>
+                </div>
+                
+                <!-- uranus -->
+                <div id="uranus" class="orbit uranus visible">
+                    <div class="planet">
+                        <div id="uranus-name" class="planet-name visible">Uranus</div>
+                    </div>                
+                </div>
+                
+                <!-- neptune -->
+                <div id="neptune" class="orbit neptune visible">
+                    <div class="planet">
+                        <div id="neptune-name" class="planet-name visible">Neptune</div>
+                    </div>
+                    
+                </div>
             </div>
         </div>
-    </div>
+
+        <div class="card hidden" id="mercury-card"></div>
+        <div class="card hidden" id="venus-card"></div>
+        <div class="card hidden" id="earth-card"></div>
+        <div class="card hidden" id="mars-card"></div>
+        <div class="card hidden" id="jupiter-card"></div>
+        <div class="card hidden" id="saturn-card"></div>
+        <div class="card hidden" id="uranus-card"></div>
+        <div class="card hidden" id="neptne-card"></div>
+
+    </main>
 </body>
 </html>

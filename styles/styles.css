@@ -17,6 +17,9 @@ body{
     font-family: 'VT323', monospace;
     overflow: hidden;
     user-select: none;
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
 }
 
 a{
@@ -56,11 +59,12 @@ header{
     /* top: -115px; */
     top: 0px;
     left: 0;
-    right: 0;
-    z-index: 1;
+    right: 0;;
     color: white;
     font-size: 18px;
     padding: 10px;
+
+    z-index: 1;
 }
 
 header .left{
@@ -103,11 +107,11 @@ input[type="checkbox"]:checked{
     color: white; */
 }
 
-#restart-button{
+.button{
     font-family: 'VT323', monospace;
     font-size: 18px;
     display: inline-block;
-    width: 50%;
+    width: 45%;
     margin-top: 20px;
     background-color: white;
     color: black;
@@ -116,7 +120,7 @@ input[type="checkbox"]:checked{
     border: none; 
 }
 
-#restart-button:active{
+.button:active{
     transform: translateY(2px);    
 }
 
@@ -151,26 +155,33 @@ header .input{
 
 /* ! SOLAR SYSTEM */
 #solar-system{
-    width: 100vw;
-    height: 100vh;
-    background: radial-gradient(#222, black);
+    width: 500vw;
+    height: 500vh;
+    background: radial-gradient(#222, black 15%);
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+body{
+    background-image: url(https://wallpapercave.com/wp/wp4865484.jpg);
+    background-size: cover;
+    background-position: center;
 }
 
 #solar-system.galaxy-background{
-    background-image: url(../img/galaxy-background.jpg);
-    background-size: cover;
-    background-position: center;
+    background: transparent;
 }
 
 #solar-system.galaxy-background::before{
     content: '';
     position: absolute;
-    width: 100vw;
+    width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,.5);
 }
@@ -211,7 +222,18 @@ header .input{
 
 .planet-name{
     font-size: 20px;
-    position: absolute;
+    position: sticky;
+}
+
+.card{
+    height: 500px;
+    width: 250px;
+    border: 2px solid gray;
+    position: fixed;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
 }
 
 
@@ -221,7 +243,7 @@ header .input{
     height: .39rem;
     animation: orbit linear infinite;
     /* animation-duration: calc(88s / var(--speed-value)); */
-    z-index: 9;
+    z-index: -2;
 }
 
 .mercury .planet{
@@ -241,7 +263,7 @@ header .input{
     height: .72rem;
     animation: orbit linear infinite;
     /* animation-duration: calc(225s / var(--speed-value)); */
-    z-index: 8;
+    z-index: -3;
 }
 
 .venus .planet{
@@ -261,7 +283,7 @@ header .input{
     animation: orbit linear infinite;
     animation-fill-mode: both;
     /* animation-duration: calc(365s / var(--speed-value)); */
-    z-index: 7;
+    z-index: -4;
 }
 
 #earth .planet{
@@ -281,7 +303,7 @@ header .input{
     height: 1.52rem;
     animation: orbit linear infinite;
     /* animation-duration: calc(687s / var(--speed-value)); */
-    z-index: 6;
+    z-index: -5;
 }
 
 .mars .planet{
@@ -301,7 +323,7 @@ header .input{
     height: 5.20rem;
     animation: orbit linear infinite;
     /* animation-duration: calc(4330s / var(--speed-value)); */
-    z-index: 5;
+    z-index: -6;
 }
 
 .jupiter .planet{
@@ -323,7 +345,7 @@ header .input{
     height: 9.55rem;
     animation: orbit linear infinite;
     /* animation-duration: calc(10076s / var(--speed-value)); */
-    z-index: 4;
+    z-index: -7;
 }
 
 .saturn .planet{
@@ -357,7 +379,7 @@ header .input{
     height: 19.22rem;
     animation: orbit linear infinite;
     /* animation-duration: calc(30000s / var(--speed-value)); */
-    z-index: 3;
+    z-index: -8;
 }
 
 .uranus .planet-name{
@@ -377,7 +399,7 @@ header .input{
     height: 30.06rem;
     animation: orbit linear infinite;
     /* animation-duration: calc(60000s / var(--speed-value)); */
-    z-index: 2;
+    z-index: -9;
 }
 
 .neptune .planet-name{
