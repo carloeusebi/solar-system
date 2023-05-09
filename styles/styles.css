@@ -242,6 +242,11 @@ header .input{
 .planet-name{
     font-size: 20px;
     position: sticky;
+    padding: 7px 10px;
+}
+
+.planet:hover .planet-name{
+    visibility: visible;
 }
 
 
