@@ -186,6 +186,7 @@ addEventListener("change", (event) => {
 
 
 // ! planet names appear on mouseover
+
 for (let i = 0; i < orbits.length; i++){
     planets[i].addEventListener('mouseover', function(){
         planetName[i].classList.replace('hidden', 'visible');
@@ -195,7 +196,9 @@ for (let i = 0; i < orbits.length; i++){
 // and disappear on mouseout
 for (let i = 0; i < orbits.length; i++){
     planets[i].addEventListener('mouseout', function(){
-        planetName[i].classList.replace('visible', 'hidden');
+        if (planetNamesCheckbox.checked != true){
+            planetName[i].classList.replace('visible', 'hidden');
+        }
     })
 }
 
