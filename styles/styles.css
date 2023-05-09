@@ -17,13 +17,21 @@ body{
     font-family: 'VT323', monospace;
     overflow: hidden;
     user-select: none;
-    background-color: black;
+    background-image: url(https://wallpapercave.com/wp/wp4865484.jpg);
+    background-size: fill;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 100vw;
     height: 100vh;
 }
 
+
 a{
     text-decoration: none;
+}
+
+img {
+    max-width: 100%;
 }
 
 /* utilities */
@@ -153,6 +161,23 @@ header .input{
     color: black;
 }
 
+/* ! CARDS */
+
+.card{
+    max-width: 300px;
+    padding: 20px;
+    border: 2px solid gray;
+    position: fixed;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    color: white;
+    font-size: 16px;
+}
+
+/* TODO stylize cards */
+
 /* ! SOLAR SYSTEM */
 #solar-system{
     width: 500vw;
@@ -166,12 +191,6 @@ header .input{
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-}
-
-body{
-    background-image: url(https://wallpapercave.com/wp/wp4865484.jpg);
-    background-size: cover;
-    background-position: center;
 }
 
 #solar-system.galaxy-background{
@@ -223,17 +242,6 @@ body{
 .planet-name{
     font-size: 20px;
     position: sticky;
-}
-
-.card{
-    height: 500px;
-    width: 250px;
-    border: 2px solid gray;
-    position: fixed;
-    right: 50px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1;
 }
 
 
@@ -411,48 +419,4 @@ body{
 .neptune .planet{
     background-color: #366896;
     box-shadow: 0 0 10px #366896;
-}
-
-/* ! ANIMATIONS */
-
-@keyframes orbit {
-    0% {
-        rotate: 0deg;
-    }
-    10%{
-        rotate: 36deg
-    }
-    20%{
-        rotate: 72deg;
-    }
-    30%{
-        rotate: 108deg;
-    }
-    40%{
-        rotate: 144deg;
-    }
-    50%{
-        rotate: 180deg;
-    }
-    60%{
-        rotate: 216deg;
-    }
-    70%{
-        rotate: 252deg;
-    }
-    80%{    
-        rotate: 288deg;
-    }
-    90%{
-        rotate: 324deg;
-    }
-    100%{
-        rotate: 360deg;
-    }
-}
-
-@keyframes planet-name {
-    to{
-        rotate: -360deg;
-    }
 }

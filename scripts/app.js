@@ -11,11 +11,10 @@ const speedSlider = document.getElementById("speed-slider");
 const restartButton = document.getElementById('restart-button')
 const centerButton = document.getElementById('center-button')
 
-
 //arrays
 const planetName = document.querySelectorAll(".planet-name");
 const orbits = document.querySelectorAll(".orbit");
-const cards = document.querySelectorAll(".card"); 
+const planets = document.querySelectorAll(".planet");
 
 const solarSystem = document.getElementById('solar-system')
 
@@ -45,7 +44,6 @@ zoomSlider.onchange = function() {
 
 // ! speed function
 let speedValue = speedSlider.value;
-console.log(speedValue);
 document.getElementById('speed-value').innerText = speedValue + " Earth days"
 
 const orbitalPeriodsArray = [ 88, 225, 365, 687, 4333, 10759, 30687, 60190];
@@ -89,7 +87,6 @@ function startPlanetsRotation(){
             iterations: Infinity
         })
 
-        console.log(rotations)
     }
 }
 
@@ -248,13 +245,52 @@ document.addEventListener('mousemove', function(event){
 }, true);
 
 // ! card funtion
+const card = document.getElementById("card");
+let orbitsCompleted;
 
-for (let i = 0; i < orbits.length; i++){
-    orbits[i].addEventListener('click', function(){
-        console.log(cards[i]);
-        for (var j = 0; j < cards.length; j++){
-            cards[j].classList.replace('visible', 'hidden');
-        }
-        cards[i].classList.replace('hidden', 'visible');
-    });
+function roundToTwoDecimals(value){
+    return +parseFloat(value).toFixed(2);
 }
+
+function updateOrbitsCompleted(card, i){
+    orbitsCompleted = roundToTwoDecimals(daysPassed / orbitalPeriodsArray[i]);   
+    card.querySelector('.planet-orbits-completed').innerText = 'Orbits completed: ' + orbitsCompleted;
+}
+
+for (let i = 0; i < planets.length; i++){
+    planets[i].addEventListener('click', function(){
+        
+        let request = new XMLHttpRequest();
+        request.open("GET", "https://planets-info-by-newbapi.p.rapidapi.com/api/v1/planets/" + (i + 1));
+        request.setRequestHeader('X-RapidAPI-Key', '06d5a01626mshe26bac4ed36e7b8p10ccd1jsndc1eebff38c1');
+        request.setRequestHeader('X-RapidAPI-Host', 'planets-info-by-newbapi.p.rapidapi.com');
+        request.send();
+        request.onload = () => {
+            console.log(request);
+            
+            const data = JSON.parse(request.response);
+            
+            card.querySelector('.planet-name').innerText = data.name;
+            card.querySelector('.planet-description').innerText = data.description;
+            card.querySelector('.planet-period').innerText = orbitalPeriodsArray[i] + " days";
+            card.querySelector('.planet-volume').innerText = data.basicDetails.volume;
+            card.querySelector('.planet-mass').innerText = data.basicDetails.mass;
+            card.querySelector('.planet-link').href = data.wikiLink;
+            card.querySelector('.planet-link').innerText = data.wikiLink;
+            card.querySelector('.planet-image').src = data.imgSrc.img;
+            card.querySelector('.planet-image').alt = 'A picture of ' + data.name;
+           
+            setInterval(function(){
+                updateOrbitsCompleted(card, i)
+            }, 100);
+            
+            card.classList.replace('hidden', 'visible');
+        }
+    }   
+)}
+
+
+// TODO add functionality only to close button
+card.addEventListener('click', function (){
+    card.classList.replace('visible', 'hidden');
+})
