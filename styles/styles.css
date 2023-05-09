@@ -16,7 +16,6 @@ html{
 body{
     font-family: 'VT323', monospace;
     overflow: hidden;
-    user-select: none;
     background-image: url(https://wallpapercave.com/wp/wp4865484.jpg);
     background-size: fill;
     background-position: center;
@@ -28,10 +27,13 @@ body{
 
 a{
     text-decoration: none;
+    color: white;
+    font-size: 14px
 }
 
 img {
     max-width: 100%;
+    display: block;
 }
 
 /* utilities */
@@ -63,14 +65,14 @@ header{
     background-color: rgba(0,0,0, .3);
     border-bottom: 1px solid #333;
     position: fixed;
-    height: 120px;
-    /* top: -115px; */
     top: 0px;
     left: 0;
     right: 0;;
     color: white;
     font-size: 18px;
     padding: 10px;
+    user-select: none;
+
 
     z-index: 1;
 }
@@ -165,7 +167,6 @@ header .input{
 
 .card{
     max-width: 300px;
-    padding: 20px;
     border: 2px solid gray;
     position: fixed;
     right: 50px;
@@ -173,7 +174,33 @@ header .input{
     transform: translateY(-50%);
     z-index: 1;
     color: white;
-    font-size: 16px;
+    font-size: 20px;
+    background-color: black;
+    overflow: hidden;
+}
+
+.card-top-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-top-bar .fa-xmark{
+    cursor: pointer;
+}
+
+#card > *{
+    padding: 10px;
+}
+
+#card div:nth-child(even){
+    background-color: gray;
+}
+
+#card div:nth-child(2){
+    background-color: #000;
+    border-bottom: 2px solid gray;
+    border-top: 2px solid gray;
 }
 
 /* TODO stylize cards */

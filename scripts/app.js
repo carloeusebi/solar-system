@@ -269,9 +269,9 @@ for (let i = 0; i < planets.length; i++){
             
             card.querySelector('.planet-name').innerText = data.name;
             card.querySelector('.planet-description').innerText = data.description;
-            card.querySelector('.planet-period').innerText = orbitalPeriodsArray[i] + " days";
-            card.querySelector('.planet-volume').innerText = data.basicDetails.volume;
-            card.querySelector('.planet-mass').innerText = data.basicDetails.mass;
+            card.querySelector('.planet-period').innerText ='Period: ' + orbitalPeriodsArray[i] + " days";
+            card.querySelector('.planet-volume').innerText = 'Volume: ' + data.basicDetails.volume;
+            card.querySelector('.planet-mass').innerText = 'Mass: ' + data.basicDetails.mass;
             card.querySelector('.planet-link').href = data.wikiLink;
             card.querySelector('.planet-link').innerText = data.wikiLink;
             card.querySelector('.planet-image').src = data.imgSrc.img;
@@ -288,7 +288,12 @@ for (let i = 0; i < planets.length; i++){
 )}
 
 
-// TODO add functionality only to close button
-card.addEventListener('click', function (){
-    card.classList.replace('visible', 'hidden');
-})
+// card.addEventListener('click', function (){
+    // })
+    
+    const cardClose = document.getElementById('card-close');
+    console.log(cardClose);
+    
+    cardClose.addEventListener('click', function(){
+        card.classList.replace('visible', 'hidden');
+    })
