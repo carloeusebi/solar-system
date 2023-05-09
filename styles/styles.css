@@ -37,14 +37,6 @@ img {
 }
 
 /* utilities */
-.flex{
-    display: flex;
-    align-items: center;
-}
-
-.flex.justify-space-between{
-    justify-content: space-between;
-}
 
 .container{
     max-width: 1800px;
@@ -74,12 +66,31 @@ header{
     user-select: none;
 
 
-    z-index: 1;
+    z-index: 2;
+}
+
+header .container{
+    display: flex;
+    justify-content: space-between;
+}
+
+header .left label{
+    display: flex;
+    width: 100%;
+    justify-content: space-between
 }
 
 header .left{
-    width: 30%;
     text-align: left;
+    width: 30%;
+}
+
+header .left > *{
+    width: 100%;
+}
+
+header .buttons-container{
+    text-align: right;
 }
 
 input[type="range"]{
@@ -121,7 +132,7 @@ input[type="checkbox"]:checked{
     font-family: 'VT323', monospace;
     font-size: 18px;
     display: inline-block;
-    width: 45%;
+    width: 40%;
     margin-top: 20px;
     background-color: white;
     color: black;
@@ -134,24 +145,18 @@ input[type="checkbox"]:checked{
     transform: translateY(2px);    
 }
 
-.slider label{
-    width: 28vw;
-    display: fixed;
-    justify-content: center;
-}
-
-.slider span{
-    flex-grow: 1;
-}
-
 header .right{
     justify-content: flex-end;
+    width: 10%;
 }
 
 header .right .options {
-    text-align: left;
+    text-align: center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
 }
 
 header label{
@@ -163,10 +168,10 @@ header .input{
     color: black;
 }
 
-/* ! CARDS */
 
+/* ! CARDS */
 .card{
-    max-width: 300px;
+    width: 300px;
     border: 2px solid gray;
     position: fixed;
     right: 50px;
@@ -177,6 +182,8 @@ header .input{
     font-size: 20px;
     background-color: black;
     overflow: hidden;
+    cursor: move;
+    box-shadow: 0 0 10px black;
 }
 
 .card-top-bar{
@@ -187,6 +194,7 @@ header .input{
 
 .card-top-bar .fa-xmark{
     cursor: pointer;
+    padding: 3px;
 }
 
 #card > *{
@@ -218,6 +226,10 @@ header .input{
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+}
+
+#solar-system:active{
+    cursor: grabbing;
 }
 
 #solar-system.galaxy-background{

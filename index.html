@@ -34,21 +34,23 @@
 
                 <!-- zoom slider -->
                 <div class="slider">
-                    <label id="zoom-label" for="zoom-slider">Zoom: 1au = &ThinSpace;<span id="zoom-value">80px</span>
+                    <label id="zoom-label" for="zoom-slider"><span id="zoom-value">Zoom: 1AU: 80px</span>
                         <input id="zoom-slider" type="range" min="10" max="160" step="10" value="80">
                     </label>
                 </div>
                 
                 <!-- speed slider -->
                 <div class="slider">
-                    <label id="speed-label" for="speed-slider">Speed: 1sec = &ThinSpace;<span id="speed-value">100 Earth days</span>
+                    <label id="speed-label" for="speed-slider"><span id="speed-value">Speed: 1 sec = 100 Earth days</span>
                         <input id="speed-slider" type="range" min="10" max="500" step="10" value="100">
                     </label> 
                 </div>
 
                 <!-- restart button -->
-                <input class="button" id="restart-button" type="button" value="Restart Simulation">
-                <input class="button" id="center-button" type="button" value="Center">
+                <div class="buttons-container">
+                    <input class="button" id="restart-button" type="button" value="Restart Simulation">
+                    <input class="button" id="center-button" type="button" value="Center">
+                </div>
 
             </div>
             
@@ -124,14 +126,16 @@
                         <div id="uranus-name" class="planet-name visible">Uranus</div>
                     </div>                
                 </div>
-                
+
                 <!-- neptune -->
                 <div id="neptune" class="orbit neptune visible">
                     <div class="planet">
                         <div id="neptune-name" class="planet-name visible">Neptune</div>
-                    </div>
-                    
+                    </div>                
                 </div>
+                
+
+
             </div>
         </div>
 

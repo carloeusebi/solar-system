@@ -18,8 +18,7 @@ const planets = document.querySelectorAll(".planet");
 
 const solarSystem = document.getElementById('solar-system')
 
-let zoomValue = zoomSlider.value;        
-document.getElementById('zoom-value').innerText = zoomValue + "px";                        
+let zoomValue = zoomSlider.value;                   
 
 // ! Restart function
 restartButton.addEventListener('click', function(){
@@ -36,7 +35,7 @@ centerButton.addEventListener('click', function(){
 // ! zoom function
 zoomSlider.onchange = function() {
     let zoomValue = zoomSlider.value;
-    document.getElementById('zoom-value').innerText = zoomValue + "px";
+    document.getElementById('zoom-value').innerText ='Zoom: 1AU: ' + zoomValue + "px";
     let zoomPixels = zoomValue + "px";
     document.querySelector("html").style.fontSize = zoomPixels;                    
 }
@@ -44,7 +43,7 @@ zoomSlider.onchange = function() {
 
 // ! speed function
 let speedValue = speedSlider.value;
-document.getElementById('speed-value').innerText = speedValue + " Earth days"
+document.getElementById('speed-value').innerText ='Speed: 1sec = ' + speedValue + " Earth days"
 
 const orbitalPeriodsArray = [ 88, 225, 365, 687, 4333, 10759, 30687, 60190];
 
@@ -288,12 +287,44 @@ for (let i = 0; i < planets.length; i++){
 )}
 
 
-// card.addEventListener('click', function (){
-    // })
+
+// ! close cards
+const cardClose = document.getElementById('card-close');
+console.log(cardClose);
+
+cardClose.addEventListener('click', function(){
+    card.classList.replace('visible', 'hidden');
+    //reset card position
+    card.style.left = 'calc(100% - 350px)';
+    card.style.top = '50%';
+})
+
+var isDownCard = false;
+var offsetCard = [0,0];
+var mousePositionCard;
+
+// ! Drag cards
+card.addEventListener('mousedown', function(e) {
+    isDownCard = true;
+    offsetCard = [
+        card.offsetLeft - e.clientX,
+        card.offsetTop - e.clientY
+    ];
     
-    const cardClose = document.getElementById('card-close');
-    console.log(cardClose);
-    
-    cardClose.addEventListener('click', function(){
-        card.classList.replace('visible', 'hidden');
-    })
+}, true)
+
+document.addEventListener('mouseup', function(){
+    isDownCard = false;
+}, true);
+
+document.addEventListener('mousemove', function(event){
+    event.preventDefault();
+    if (isDownCard){
+        mousePositionCard = {
+            xRay : event.clientX,
+            yankee : event.clientY
+        };
+        card.style.left = (mousePositionCard.xRay + offsetCard[0]) + 'px';
+        card.style.top = (mousePositionCard.yankee + offsetCard[1]) + 'px';
+    }
+}, true);
