@@ -247,13 +247,10 @@ document.addEventListener('mousemove', function(event){
 // ! card funtion
 const card = document.getElementById("card");
 let orbitsCompleted;
-
-function roundToTwoDecimals(value){
-    return +parseFloat(value).toFixed(2);
-}
+let myInterval;
 
 function updateOrbitsCompleted(card, i){
-    orbitsCompleted = roundToTwoDecimals(daysPassed / orbitalPeriodsArray[i]);   
+    orbitsCompleted = (daysPassed / orbitalPeriodsArray[i]).toFixed(2);   
     card.querySelector('.planet-orbits-completed').innerText = 'Orbits completed: ' + orbitsCompleted;
 }
 
@@ -279,8 +276,9 @@ for (let i = 0; i < planets.length; i++){
             card.querySelector('.planet-link').innerText = data.wikiLink;
             card.querySelector('.planet-image').src = data.imgSrc.img;
             card.querySelector('.planet-image').alt = 'A picture of ' + data.name;
-           
-            setInterval(function(){
+
+            clearInterval(myInterval);
+            myInterval = setInterval(function(){
                 updateOrbitsCompleted(card, i)
             }, 100);
             
