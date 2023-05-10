@@ -41,7 +41,6 @@ zoomSlider.onchange = function() {
     document.querySelector("html").style.fontSize = zoomPixels;                    
 }
 
-
 // ! speed function
 let speedValue = speedSlider.value;
 document.getElementById('speed-value').innerText ='Speed: 1sec = ' + speedValue + " Earth days"
@@ -209,7 +208,6 @@ speedSlider.addEventListener("wheel", function(e){
     
     speedSlider.dispatchEvent(event);
 })
-
 
 // ! Drag function
 var isDown = false;

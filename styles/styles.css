@@ -15,7 +15,7 @@ html{
 
 body{
     font-family: 'VT323', monospace;
-    background-image: url(https://wallpapercave.com/wp/wp4865484.jpg);
+    background-image: url(../img/galaxy-background.jpg);
     background-size: fill;
     background-position: center;
     background-repeat: no-repeat;
@@ -154,6 +154,10 @@ header .right .options {
     justify-content: center;
     align-items: flex-start;
     height: 100%;
+}
+
+header .right label{
+    padding-bottom: 5px;
 }
 
 header label{
@@ -453,11 +457,6 @@ header .input{
 }
 
 @media screen and (max-width: 1080px) {  
-    body{
-        background-color: black;
-    }
-
-
     header{
         width: 100vw;
     }
@@ -480,7 +479,7 @@ header .input{
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
     header{
         font-size: 15px;
     }
@@ -498,7 +497,7 @@ header .input{
         font-size: 12px;
     }
 
-    header.right > *{
-        padding: 50px 0;
+    header .right label{
+        width: 150px;
     }
 }
