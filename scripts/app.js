@@ -8,8 +8,8 @@ const zoomSlider = document.getElementById("zoom-slider");
 const speedSlider = document.getElementById("speed-slider");
 
 //buttons
-const restartButton = document.getElementById('restart-button')
-const centerButton = document.getElementById('center-button')
+const restartButton = document.getElementById('restart-button');
+const centerButton = document.getElementById('center-button');
 
 //arrays
 const planetName = document.querySelectorAll(".planet-name");
@@ -31,6 +31,7 @@ centerButton.addEventListener('click', function(){
     solarSystem.style.left = "50%";
     solarSystem.style.top = "50%";
 })
+
 
 // ! zoom function
 zoomSlider.onchange = function() {
@@ -85,7 +86,6 @@ function startPlanetsRotation(){
             duration: rotations,
             iterations: Infinity
         })
-
     }
 }
 
@@ -227,11 +227,11 @@ solarSystem.addEventListener('mousedown', function(e) {
     
 }, true)
 
-document.addEventListener('mouseup', function(){
+solarSystem.addEventListener('mouseup', function(){
     isDown = false;
 }, true);
 
-document.addEventListener('mousemove', function(event){
+solarSystem.addEventListener('mousemove', function(event){
     event.preventDefault();
     if (isDown){
         mousePosition = {
@@ -242,6 +242,35 @@ document.addEventListener('mousemove', function(event){
         solarSystem.style.top = (mousePosition.y + offset[1]) + 'px';
     }
 }, true);
+
+
+// drag with touchscreen
+
+solarSystem.addEventListener('touchstart', function(e) {
+    isDown = true;
+    offset = [
+        solarSystem.offsetLeft - e.targetTouches[0].pageX,
+        solarSystem.offsetTop - e.targetTouches[0].pageY
+    ];
+    
+}, true)
+
+document.addEventListener('touchend', function(){
+    isDown = false;
+}, true);
+
+document.addEventListener('touchmove', function(event){
+    event.preventDefault();
+    if (isDown){
+        mousePosition = {
+            x : event.targetTouches[0].pageX,
+            y : event.targetTouches[0].pageY
+        };
+        solarSystem.style.left = (mousePosition.x + offset[0]) + 'px';
+        solarSystem.style.top = (mousePosition.y + offset[1]) + 'px';
+    }
+}, true);
+
 
 // ! card funtion
 const card = document.getElementById("card");
@@ -321,10 +350,37 @@ document.addEventListener('mousemove', function(event){
     event.preventDefault();
     if (isDownCard){
         mousePositionCard = {
-            xRay : event.clientX,
-            yankee : event.clientY
+            x : event.clientX,
+            y : event.clientY
         };
-        card.style.left = (mousePositionCard.xRay + offsetCard[0]) + 'px';
-        card.style.top = (mousePositionCard.yankee + offsetCard[1]) + 'px';
+        card.style.left = (mousePositionCard.x + offsetCard[0]) + 'px';
+        card.style.top = (mousePositionCard.y + offsetCard[1]) + 'px';
+    }
+}, true);
+
+//move card with touchscreen
+
+card.addEventListener('touchstart', function(e) {
+    isDownCard = true;
+    offsetCard = [
+        card.offsetLeft - e.targetTouches[0].pageX,
+        card.offsetTop - e.targetTouches[0].pageY
+    ];
+    
+}, true)
+
+document.addEventListener('touchend', function(){
+    isDownCard = false;
+}, true);
+
+document.addEventListener('touchmove', function(event){
+    event.preventDefault();
+    if (isDownCard){
+        mousePositionCard = {
+            x : event.targetTouches[0].pageX,
+            y : event.targetTouches[0].pageY
+        };
+        card.style.left = (mousePositionCard.x + offsetCard[0]) + 'px';
+        card.style.top = (mousePositionCard.y + offsetCard[1]) + 'px';
     }
 }, true);

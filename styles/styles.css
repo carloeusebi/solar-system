@@ -15,13 +15,14 @@ html{
 
 body{
     font-family: 'VT323', monospace;
-    overflow: hidden;
     background-image: url(https://wallpapercave.com/wp/wp4865484.jpg);
     background-size: fill;
     background-position: center;
     background-repeat: no-repeat;
     width: 100vw;
     height: 100vh;
+    -webkit-touch-callout:none;
+    overflow: hidden;
 }
 
 
@@ -55,7 +56,7 @@ header{
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;;
+    right: 0;
     color: white;
     font-size: 18px;
     padding: 10px;
@@ -133,17 +134,17 @@ input[type="checkbox"]:checked{
     background-color: white;
     color: black;
     padding: 5px 8px;
-    cursor: pointer;  
-    border: none; 
+    cursor: pointer;
+    border: none;
 }
 
 .button:active{
-    transform: translateY(2px);    
+    transform: translateY(2px);
 }
 
 header .right{
     justify-content: flex-end;
-    width: 10%;
+    width: 150px;
 }
 
 header .right .options {
@@ -207,8 +208,6 @@ header .input{
     border-top: 2px solid gray;
 }
 
-/* TODO stylize cards */
-
 /* ! SOLAR SYSTEM */
 #solar-system{
     width: 500vw;
@@ -217,7 +216,6 @@ header .input{
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -329,14 +327,14 @@ header .input{
 
 #earth .planet{
     background-color: aqua;
-    box-shadow: 0 0 10px aqua;   
+    box-shadow: 0 0 10px aqua;
 }
 
 #earth .planet-name{
     animation: planet-name linear infinite;
     /* animation-duration: calc(365s / var(--speed-value)); */
-    color: aqua;        
-}   
+    color: aqua;
+}
 
 /* # MARS */
 .mars{
@@ -356,7 +354,7 @@ header .input{
     animation: planet-name linear infinite;
     /* animation-duration: calc(687s / var(--speed-value)); */
     color: #993d00;
-}   
+}
 
 /* # JUPITER */
 .jupiter{
@@ -378,7 +376,7 @@ header .input{
     animation: planet-name linear infinite;
     /* animation-duration: calc(4330s / var(--speed-value)); */
     color: #b07f35;
-}   
+}
 
 /* # SATURN */
 .saturn{
@@ -412,7 +410,7 @@ header .input{
     animation: planet-name linear infinite;
     /* animation-duration: calc(10076s / var(--speed-value)); */
     color: #b08f36;
-}   
+}
 
 /* # URANUS */
 .uranus{
@@ -427,7 +425,7 @@ header .input{
     animation: planet-name linear infinite;
     /* animation-duration: calc(30000s / var(--speed-value)); */
     color: #5580aa;
-} 
+}
 
 .uranus .planet{
     background-color: #5580aa;
@@ -447,17 +445,21 @@ header .input{
     animation: planet-name linear infinite;
     /* animation-duration: calc(60000s / var(--speed-value)); */
     color: #366896;
-}   
+}
 
 .neptune .planet{
     background-color: #366896;
     box-shadow: 0 0 10px #366896;
 }
 
-@media (width < 1080px) {
+@media screen and (max-width: 1080px) {  
+    body{
+        background-color: black;
+    }
+
+
     header{
-        position: fixed;
-        top: 0;
+        width: 100vw;
     }
 
     header .right{
@@ -465,30 +467,20 @@ header .input{
         padding: 25px;
         left: 0;
         bottom: 0;
-        width: 50%;
+        width: 50vw;
+
     }
 
     header .left{
         width: 100vw;
     }
-
-    #solar-system{
-        width: 100vw;
-        height: 100vh;
-
-    }
     
-    body{
-        width: 100vw;
-        height: 100vh;
-    }
-
     header .buttons-container{
         text-align: center;
     }
 }
 
-@media (width < 600px) {
+@media screen and (max-width: 600px) {
     header{
         font-size: 15px;
     }
@@ -504,5 +496,9 @@ header .input{
 
     .button{
         font-size: 12px;
+    }
+
+    header.right > *{
+        padding: 50px 0;
     }
 }
