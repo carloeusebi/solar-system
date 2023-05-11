@@ -283,6 +283,9 @@ function updateOrbitsCompleted(card, i){
 for (let i = 0; i < planets.length; i++){
     planets[i].addEventListener('click', function(){
         
+        // change cursor to wait
+        document.body.style.cursor = "wait";
+        
         let request = new XMLHttpRequest();
         request.open("GET", "https://planets-info-by-newbapi.p.rapidapi.com/api/v1/planets/" + (i + 1));
         request.setRequestHeader('X-RapidAPI-Key', '06d5a01626mshe26bac4ed36e7b8p10ccd1jsndc1eebff38c1');
@@ -291,24 +294,28 @@ for (let i = 0; i < planets.length; i++){
         request.onload = () => {
             console.log(request);
             
-            const data = JSON.parse(request.response);
+            const planetData = JSON.parse(request.response);
             
-            card.querySelector('.planet-name').innerText = data.name;
-            card.querySelector('.planet-description').innerText = data.description;
+            card.querySelector('.planet-name').innerText = planetData.name;
+            card.querySelector('.planet-description').innerText = planetData.description;
             card.querySelector('.planet-period').innerText ='Period: ' + orbitalPeriodsArray[i] + " days";
-            card.querySelector('.planet-volume').innerText = 'Volume: ' + data.basicDetails.volume;
-            card.querySelector('.planet-mass').innerText = 'Mass: ' + data.basicDetails.mass;
-            card.querySelector('.planet-link').href = data.wikiLink;
-            card.querySelector('.planet-link').innerText = data.wikiLink;
-            card.querySelector('.planet-image').src = data.imgSrc.img;
-            card.querySelector('.planet-image').alt = 'A picture of ' + data.name;
+            card.querySelector('.planet-volume').innerText = 'Volume: ' + planetData.basicDetails.volume;
+            card.querySelector('.planet-mass').innerText = 'Mass: ' + planetData.basicDetails.mass;
+            card.querySelector('.planet-link').href = planetData.wikiLink;
+            card.querySelector('.planet-link').innerText = planetData.wikiLink;
+            card.querySelector('.planet-image').src = planetData.imgSrc.img;
+            card.querySelector('.planet-image').alt = 'A picture of ' + planetData.name;
 
             clearInterval(myInterval);
             myInterval = setInterval(function(){
                 updateOrbitsCompleted(card, i)
             }, 100);
             
+            // show card
             card.classList.replace('hidden', 'visible');
+            // change cursor to default
+            document.body.style.cursor = "default";
+
         }
     }   
 )}
