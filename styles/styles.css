@@ -11,6 +11,7 @@
 html{
     /* 1rem = 1au */
     font-size: 80px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body{
