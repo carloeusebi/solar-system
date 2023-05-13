@@ -142,7 +142,7 @@ speedSlider.onchange = function () {
 
     speedValue = speedSlider.value;
 
-    document.getElementById('speed-value').innerText = speedValue + " Earth days";
+    document.getElementById('speed-value').innerText ="Speed: 1sec = " + speedValue + " Earth days";
 
     for (var i = 0; i < orbits.length; i++){
         angle = getCurrentRotation(orbits[i]);
