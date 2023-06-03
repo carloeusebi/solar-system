@@ -1,49 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=n0">
-        <meta name="author" content="Carlo Eusebi">
+    <meta name="author" content="Carlo Eusebi">
     <title>Solar system</title>
     <link rel="icon" href="img/solar-system.png" type="img/png">
     <link rel="stylesheet" href="styles/styles.css">
 
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' integrity='sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==' crossorigin='anonymous'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
+        integrity='sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=='
+        crossorigin='anonymous'>
 
     <link href="https://fonts.googleapis.com/css?family=VT323:regular" rel="stylesheet">
 
-     <!-- ! Sripts -->
-    <script defer src="scripts/app.js"></script>
+    <!-- ! Sripts -->
+    <script defer src="js/app.js"></script>
 
 </head>
+
 <body>
 
 
     <!-- ! HEADER -->
     <header>
         <div class="container flex justify-space-between">
-            
+
             <!-- # left side -->
             <div class="left">
 
                 <!-- elapsed time -->
                 <div class="elapsed-time">
-                    <div id="days">Time elapsed: 0 days</div>
+                    <div id="time-counter">Time elapsed: 0 days</div>
                 </div>
 
                 <!-- zoom slider -->
                 <div class="slider">
-                    <label id="zoom-label" for="zoom-slider"><span id="zoom-value">Zoom: 1AU: 80px</span>
-                        <input id="zoom-slider" type="range" min="10" max="160" step="10" value="80">
+                    <label for="zoom-slider">
+                        <span id="zoom-label">Zoom: 1AU: 80px</span>
                     </label>
+                    <input id="zoom-slider" type="range" min="10" max="160" step="10" value="80">
                 </div>
-                
+
                 <!-- speed slider -->
                 <div class="slider">
-                    <label id="speed-label" for="speed-slider"><span id="speed-value">Speed: 1 sec = 100 Earth days</span>
-                        <input id="speed-slider" type="range" min="10" max="500" step="10" value="100">
-                    </label> 
+                    <label for="speed-slider">
+                        <span id="speed-label">Speed: 1 sec = 100 Earth days</span>
+                    </label>
+                    <input id="speed-slider" type="range" min="10" max="500" step="10" value="100">
                 </div>
 
                 <!-- restart button -->
@@ -51,15 +57,17 @@
                     <input class="button" id="restart-button" type="button" value="Restart Simulation">
                     <input class="button" id="center-button" type="button" value="Center">
                 </div>
-                
+
             </div>
-            
+
             <!-- # right side -->
             <div class="right">
                 <div class="options">
-                    <label for="planet-names"><input id="planet-names" value="planet-names" type="checkbox" checked> Show planet names</label>
+                    <label for="planet-names"><input id="planet-names" value="planet-names" type="checkbox" checked>
+                        Show planet names</label>
                     <label for="orbits"><input id="orbits" value="orbits" type="checkbox" checked> Show orbits</label>
-                    <label for="background"><input id="background" value="background" type="checkbox"> Background</label>
+                    <label for="background"><input id="background" value="background" type="checkbox">
+                        Background</label>
                 </div>
             </div>
 
@@ -67,49 +75,49 @@
         </div>
 
     </header>
-    
-    
-    <main> 
+
+
+    <main>
 
         <!-- ! SOLAR SYSTEM -->
         <div id="solar-system" class="no-background">
-            
+
             <!-- sun -->
             <div class="sun">
-                
+
                 <!-- mercury -->
                 <div id="mercury" class="orbit mercury visible">
                     <div class="planet">
                         <div id="mercury-name" class="planet-name visible">Mercury</div>
                     </div>
                 </div>
-                
+
                 <!-- venus -->
                 <div id="venus" class="orbit venus visible">
                     <div class="planet">
                         <div id="venus-name" class="planet-name visible">Venus</div>
                     </div>
                 </div>
-                
+
                 <!-- earth -->
                 <div id="earth" class="orbit visible">
                     <div class="planet">
                         <div id="earth-name" class="planet-name visible">Earth</div>
                     </div>
                 </div>
-                
+
                 <!-- mars -->
                 <div id="mars" class="orbit mars visible">
                     <div class="planet">
                         <div id="mars-name" class="planet-name visible">Mars</div>
                     </div>
                 </div>
-                
+
                 <!-- jupiter -->
                 <div id="jupiter" class="orbit jupiter visible">
                     <div class="planet">
                         <div id="jupiter-name" class="planet-name visible">Jupiter</div>
-                    </div>                
+                    </div>
                 </div>
 
                 <!-- saturn -->
@@ -119,21 +127,21 @@
                         <div class="rings"></div>
                     </div>
                 </div>
-                
+
                 <!-- uranus -->
                 <div id="uranus" class="orbit uranus visible">
                     <div class="planet">
                         <div id="uranus-name" class="planet-name visible">Uranus</div>
-                    </div>                
+                    </div>
                 </div>
 
                 <!-- neptune -->
                 <div id="neptune" class="orbit neptune visible">
                     <div class="planet">
                         <div id="neptune-name" class="planet-name visible">Neptune</div>
-                    </div>                
+                    </div>
                 </div>
-                
+
 
 
             </div>
@@ -147,7 +155,7 @@
                 <div class="planet-name"></div>
                 <i id="card-close" class="fa-solid fa-xmark"></i>
             </div>
-            <div >
+            <div>
                 <img class="planet-image" src="img/galaxy-background.jpg" alt="">
             </div>
             <div class="planet-description"></div>
@@ -163,4 +171,5 @@
 
     </main>
 </body>
+
 </html>
