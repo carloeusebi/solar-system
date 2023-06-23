@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=n0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <meta name="author" content="Carlo Eusebi">
     <title>Solar system</title>
     <link rel="icon" href="img/solar-system.png" type="img/png">
@@ -16,9 +16,14 @@
 
     <link href="https://fonts.googleapis.com/css?family=VT323:regular" rel="stylesheet">
 
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- ! Sripts -->
+    <script src="js/functions.js"></script>
+    <script src="js/auth.js"></script>
     <script defer src="js/app.js"></script>
-
+    <script defer src="js/card.js"></script>
+    <script defer src="js/drag.js"></script>
 </head>
 
 <body>
@@ -155,17 +160,13 @@
                 <div class="planet-name"></div>
                 <i id="card-close" class="fa-solid fa-xmark"></i>
             </div>
-            <div>
-                <img class="planet-image" src="img/galaxy-background.jpg" alt="">
-            </div>
+            <div class="planet-image"></div>
             <div class="planet-description"></div>
             <div class="planet-period"></div>
             <div class="planet-orbits-completed"></div>
             <div class="planet-volume"></div>
             <div class="planet-mass"></div>
-            <div>
-                <a class="planet-link" href="img/galaxy-background.jpg" target="_blank">Link Wikipedia</a>
-            </div>
+            <div class="planet-link"></div>
         </div>
 
 

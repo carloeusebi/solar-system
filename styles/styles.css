@@ -1,33 +1,33 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-:root{
+:root {
     --speed-value: 100;
 }
 
-html{
+html {
     /* 1rem = 1au */
     font-size: 80px;
     -webkit-tap-highlight-color: transparent;
 }
 
-body{
-    font-family: 'VT323', monospace;
+body {
+    font-family: monospace;
     background-image: url(../img/galaxy-background.jpg);
     background-size: fill;
     background-position: center;
     background-repeat: no-repeat;
     width: 100vw;
     height: 100vh;
-    -webkit-touch-callout:none;
+    -webkit-touch-callout: none;
     overflow: hidden;
 }
 
 
-a{
+a {
     text-decoration: none;
     color: white;
     font-size: 14px
@@ -41,18 +41,13 @@ img {
 /* utilities */
 
 
-.hidden{
+.hidden {
     visibility: hidden;
 }
 
-.visible{
-    visibility: visible;
-}
-
-
 /* ! HEADER */
-header{
-    background-color: rgba(0,0,0, .3);
+header {
+    background-color: rgba(0, 0, 0, .3);
     border-bottom: 1px solid #333;
     position: fixed;
     top: 0;
@@ -60,38 +55,38 @@ header{
     right: 0;
     color: white;
     font-size: 18px;
-    padding: 10px;
+    padding: 20px;
     user-select: none;
 
 
     z-index: 2;
 }
 
-header .container{
+header .container {
     display: flex;
     justify-content: space-between;
 }
 
-header .left label{
+header .left label {
     display: flex;
     width: 100%;
     justify-content: space-between
 }
 
-header .left{
+header .left {
     text-align: left;
     width: 30%;
 }
 
-header .left > *{
+header .left>* {
     width: 100%;
 }
 
-header .buttons-container{
+header .buttons-container {
     text-align: right;
 }
 
-input[type="range"]{
+input[type="range"] {
     appearance: none;
     width: 300px;
     height: 2px;
@@ -99,7 +94,7 @@ input[type="range"]{
     cursor: pointer;
 }
 
-input[type="range"]::-webkit-slider-thumb{
+input[type="range"]::-webkit-slider-thumb {
     appearance: none;
     width: 6px;
     height: 10px;
@@ -107,7 +102,7 @@ input[type="range"]::-webkit-slider-thumb{
     border: 1px solid white;
 }
 
-input[type="checkbox"]{
+input[type="checkbox"] {
     appearance: none;
     width: 15px;
     height: 15px;
@@ -119,14 +114,14 @@ input[type="checkbox"]{
     cursor: pointer;
 }
 
-input[type="checkbox"]:checked{
+input[type="checkbox"]:checked {
     background-color: white;
     /* font: var(--fa-font-solid);
     content: "\f00c";
     color: white; */
 }
 
-.button{
+.button {
     font-family: 'VT323', monospace;
     font-size: 18px;
     display: inline-block;
@@ -139,13 +134,12 @@ input[type="checkbox"]:checked{
     border: none;
 }
 
-.button:active{
+.button:active {
     transform: translateY(2px);
 }
 
-header .right{
+header .right {
     justify-content: flex-end;
-    width: 150px;
 }
 
 header .right .options {
@@ -157,29 +151,29 @@ header .right .options {
     height: 100%;
 }
 
-header .right label{
+header .right label {
     padding-bottom: 5px;
 }
 
-header label{
+header label {
     display: flex;
     align-items: center;
 }
 
-header .input{
+header .input {
     color: black;
 }
 
 
 /* ! CARDS */
-.card{
-    width: 300px;
+.card {
+    width: 450px;
     border: 2px solid gray;
     position: fixed;
     right: 50px;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 1;
+    z-index: 3;
     color: white;
     font-size: 20px;
     background-color: black;
@@ -188,33 +182,45 @@ header .input{
     box-shadow: 0 0 10px black;
 }
 
-.card-top-bar{
+.card-top-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.card-top-bar .fa-xmark{
+.card-top-bar .fa-xmark {
     cursor: pointer;
     padding: 3px;
 }
 
-#card > *{
+#card>* {
     padding: 10px;
 }
 
-#card div:nth-child(even){
+#card div:nth-child(even) {
     background-color: gray;
 }
 
-#card div:nth-child(2){
+#card div:nth-child(2) {
     background-color: #000;
     border-bottom: 2px solid gray;
     border-top: 2px solid gray;
 }
 
+#card .planet-image {
+    display: flex;
+    justify-content: center;
+}
+
+#card .planet-image img {
+    width: 275px;
+    height: auto;
+
+    background-image: url('../img/galaxy-background.jpg');
+}
+
 /* ! SOLAR SYSTEM */
-#solar-system{
+#solar-system {
     width: 500vw;
     height: 500vh;
     background: radial-gradient(#222, black 25%);
@@ -227,16 +233,16 @@ header .input{
     transform: translate(-50%, -50%);
 }
 
-#solar-system:active{
+#solar-system:active {
     cursor: grabbing;
 }
 
-#solar-system.galaxy-background{
+#solar-system.galaxy-background {
     background: transparent;
 }
 
 
-.sun{
+.sun {
     width: .25rem;
     height: .25rem;
     background-color: yellow;
@@ -248,7 +254,7 @@ header .input{
     transform: translate(50%, 50%);
 }
 
-.sun > *{
+.sun>* {
     width: 2px;
     height: 2px;
     border-radius: 50%;
@@ -258,7 +264,7 @@ header .input{
     border-color: white transparent transparent transparent;
 }
 
-.planet{
+.planet {
     width: 5px;
     height: 5px;
     border-radius: 50%;
@@ -270,129 +276,106 @@ header .input{
     cursor: pointer;
 }
 
-.planet-name{
+.planet-name {
     font-size: 20px;
     position: sticky;
     padding: 7px 10px;
 }
 
-.planet:hover .planet-name{
+.planet:hover .planet-name {
     visibility: visible;
 }
 
 
 /* # MERCURY */
-.mercury{
+.mercury {
     width: .39rem;
     height: .39rem;
-    animation: orbit linear infinite;
-    /* animation-duration: calc(88s / var(--speed-value)); */
     z-index: -2;
 }
 
-.mercury .planet{
+.mercury .planet {
     background-color: #444;
     box-shadow: 0 0 10px #444;
 }
 
-.mercury .planet-name{
-    animation: planet-name linear infinite;
-    /* animation-duration: calc(88s / var(--speed-value)); */
+.mercury .planet-name {
     color: #444;
 }
 
 /* # VENUS */
-.venus{
+.venus {
     width: .72rem;
     height: .72rem;
-    animation: orbit linear infinite;
-    /* animation-duration: calc(225s / var(--speed-value)); */
     z-index: -3;
 }
 
-.venus .planet{
+.venus .planet {
     background-color: #e6e6e6;
 }
 
-.venus .planet-name{
-    animation: planet-name linear   infinite ;
-    /* animation-duration: calc(225s / var(--speed-value)); */
+.venus .planet-name {
     color: #e6e6e6;
 }
 
 /* # EARTH */
-#earth{
+#earth {
     width: 1rem;
     height: 1rem;
-    animation: orbit linear infinite;
-    animation-fill-mode: both;
-    /* animation-duration: calc(365s / var(--speed-value)); */
     z-index: -4;
 }
 
-#earth .planet{
+#earth .planet {
     background-color: aqua;
     box-shadow: 0 0 10px aqua;
 }
 
-#earth .planet-name{
-    animation: planet-name linear infinite;
-    /* animation-duration: calc(365s / var(--speed-value)); */
+#earth .planet-name {
     color: aqua;
 }
 
 /* # MARS */
-.mars{
+.mars {
     width: 1.52rem;
     height: 1.52rem;
-    animation: orbit linear infinite;
-    /* animation-duration: calc(687s / var(--speed-value)); */
     z-index: -5;
 }
 
-.mars .planet{
+.mars .planet {
     background-color: #993d00;
     box-shadow: 0 0 10px #993d00;
 }
 
-.mars .planet-name{
-    animation: planet-name linear infinite;
-    /* animation-duration: calc(687s / var(--speed-value)); */
+.mars .planet-name {
     color: #993d00;
 }
 
 /* # JUPITER */
-.jupiter{
+.jupiter {
     width: 5.20rem;
     height: 5.20rem;
-    animation: orbit linear infinite;
-    /* animation-duration: calc(4330s / var(--speed-value)); */
     z-index: -6;
 }
 
-.jupiter .planet{
+.jupiter .planet {
     width: 10px;
     height: 10px;
     background-color: #b07f35;
     box-shadow: 0 0 20px #b07f35;
 }
 
-.jupiter .planet-name{
-    animation: planet-name linear infinite;
-    /* animation-duration: calc(4330s / var(--speed-value)); */
+.jupiter .planet-name {
     color: #b07f35;
 }
 
 /* # SATURN */
-.saturn{
+.saturn {
     width: 9.55rem;
     height: 9.55rem;
-    animation: orbit linear infinite;
-    /* animation-duration: calc(10076s / var(--speed-value)); */
     z-index: -7;
 }
 
-.saturn .planet{
+.saturn .planet {
     width: 8px;
     height: 8px;
     background-color: #b08f36;
@@ -400,7 +383,7 @@ header .input{
     position: relative;
 }
 
-.saturn .planet .rings{
+.saturn .planet .rings {
     width: 16px;
     height: 16px;
     border: 3px solid #b08f36;
@@ -411,94 +394,75 @@ header .input{
     transform: translate(-50%, -50%);
 }
 
-.saturn .planet-name{
-    animation: planet-name linear infinite;
-    /* animation-duration: calc(10076s / var(--speed-value)); */
+.saturn .planet-name {
     color: #b08f36;
 }
 
 /* # URANUS */
-.uranus{
+.uranus {
     width: 19.22rem;
     height: 19.22rem;
-    animation: orbit linear infinite;
-    /* animation-duration: calc(30000s / var(--speed-value)); */
     z-index: -8;
 }
 
-.uranus .planet-name{
-    animation: planet-name linear infinite;
-    /* animation-duration: calc(30000s / var(--speed-value)); */
+.uranus .planet-name {
     color: #5580aa;
 }
 
-.uranus .planet{
+.uranus .planet {
     background-color: #5580aa;
     box-shadow: 0 0 10px #5580aa;
 }
 
 /* # NEPTUNE */
-.neptune{
+.neptune {
     width: 30.06rem;
     height: 30.06rem;
-    animation: orbit linear infinite;
-    /* animation-duration: calc(60000s / var(--speed-value)); */
     z-index: -9;
 }
 
-.neptune .planet-name{
-    animation: planet-name linear infinite;
-    /* animation-duration: calc(60000s / var(--speed-value)); */
+.neptune .planet-name {
     color: #366896;
 }
 
-.neptune .planet{
+.neptune .planet {
     background-color: #366896;
     box-shadow: 0 0 10px #366896;
 }
 
-@media screen and (max-width: 1080px) {  
-    header{
-        width: 100vw;
+@media screen and (max-width: 750px) {
+    header {
+        font-size: 15px;
     }
 
-    header .right{
+    .card {
+        width: 275px;
+        font-size: 14px;
+    }
+
+    header input[type="range"] {
+        width: 200px;
+    }
+
+    .button {
+        font-size: 12px;
+    }
+}
+
+
+@media screen and (max-width: 1080px) {
+    header .right {
         position: fixed;
         padding: 25px;
         left: 0;
         bottom: 0;
-        width: 50vw;
-
     }
 
-    header .left{
+    header .left {
         width: 100vw;
     }
-    
-    header .buttons-container{
+
+    header .buttons-container {
         text-align: center;
-    }
-}
-
-@media screen and (max-width: 750px) {
-    header{
-        font-size: 15px;
-    }
-
-    .card{
-        width: 200px;
-        font-size: 12px;
-    }
-
-    header input[type="range"]{
-        width: 200px;
-    }
-
-    .button{
-        font-size: 12px;
-    }
-
-    header .right label{
-        width: 150px;
     }
 }
