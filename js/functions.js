@@ -45,7 +45,7 @@ const getCurrentRotationAngle = element => {
  */
 const startPlanetsRotation = () => {
     planets.forEach(planet => {
-        updateSpeed(planet);
+        rotate(planet);
     });
 }
 
@@ -57,7 +57,7 @@ const updatePlanetsRotation = () => {
         const planetAngle = getCurrentRotationAngle(planet.orbit);
         const nameAngle = getCurrentRotationAngle(planet.name);
 
-        updateSpeed(planet, planetAngle, nameAngle);
+        rotate(planet, planetAngle, nameAngle);
     });
 }
 
@@ -68,7 +68,7 @@ const updatePlanetsRotation = () => {
  * @param {number} orbitAngle 
  * @param {number} nameAngle 
  */
-const updateSpeed = (planet, orbitAngle = 0, nameAngle = 0) => {
+const rotate = (planet, orbitAngle = 0, nameAngle = 0) => {
 
     const { orbit, orbitalPeriod, name } = planet;
 
